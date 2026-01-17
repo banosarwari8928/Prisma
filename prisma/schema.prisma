@@ -12,9 +12,15 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
-model tableName {
+model tableName{
   id    Int    @id @default(autoincrement())
   task  String
   completed Boolean @default(true)
+  created_at DateTime @default(now())
+}
+model Todo {
+  id         Int      @id @default(autoincrement())
+  task       String
+  completed  Boolean  @default(false)
   created_at DateTime @default(now())
 }
